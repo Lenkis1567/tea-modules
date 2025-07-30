@@ -1,1 +1,179 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding:0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-collapse {
+    margin-left: 4px;
+    line-height: 18px
+}
+
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1318px;
+    }
+}
+
+.card {
+    max-width: 416px;
+
+}
+
+@media (min-width: 1200px) and (max-width: 1399) {
+    .card {
+        max-width: 350px;
+    }
+}
+
+.accordion {
+    border: none;
+    overflow: hidden;
+  }
+
+.accordion-item {
+    border-bottom: 1px solid #007bff;
+    border: none;
+}
+
+.accordion-header {
+    background: #007bff;
+    border-radius: 10px;
+    color: white;
+    padding: 26px 25px 25px 23px;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: 700;
+}
+  .accordion-content {
+    background: white;
+    padding: 26px 25px 10px 23px;
+    border: none;
+    line-height: 1;
+    display: none; /*by default */
+  }
+
+  .accordion-arrow {
+    transition: transform 0.3s ease;
+    margin-left: auto
+  }
+
+  .accordion-arrow.open {
+    transform: rotate(180deg);
+  }
+  .accordion-collapse {
+    overflow: hidden;
+  }
+
+  .text-dark-subtle {
+    color: var(--bs-secondary-color);
+}
+
+
+.container-questions {
+    height: 480px 
+}
+
+
+@media screen and (max-width: 420px) {
+    .container-questions {
+        height: 490px 
+    }
+}
+
+@media screen and (max-width: 381px) {
+    .container-questions {
+        height: 520px 
+    }
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .slider {
+    position: relative;
+    width: 100%;           /* Full width of the container */
+
+  }
+  
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+  }
+  
+  .slider-arrow-left {
+    left: 15px;
+  }
+  
+  .slider-arrow-right {
+    right: 15px;
+  }
+  
+  .slider-arrow svg {
+    fill: white;
+    width: 30px;
+    height: 30px;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+    line-height: 1.1
+  }
+
+  .thanks {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.15);
+}
+
+
+.loader-bg {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(40, 37, 37, 0.198)
+}
+
+.loader {
+    border: 15px solid #f3f3f3;
+    border-top: 15px solid #3070c5;
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    animation: spin 0.5s linear infinite
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+}
