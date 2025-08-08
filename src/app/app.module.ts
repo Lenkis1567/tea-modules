@@ -1,32 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { ProductsComponent } from './components/pages/products/products.component';
-import { OrderComponent } from './components/pages/order/order.component';
-import { ProductComponent } from './components/pages/product/product.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { MainComponent } from './features/main/main.component';
+import { ProductsComponent } from './features/products/products/products.component';
+import { OrderComponent } from './features/order/order.component';
+import { ProductComponent } from './features/products/product/product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './shared/shared.module';
+import { ProductsModule } from './features/products/products.module';
+import { OrderModule } from './features/order/order.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    ProductsComponent,
-    OrderComponent,
-    ProductComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    SharedModule,
+    ProductsModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

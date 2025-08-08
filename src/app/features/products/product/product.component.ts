@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ProductType } from '../../types/product.type';
+import { ProductType } from '../../../types/product.type';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +10,7 @@ import { ProductType } from '../../types/product.type';
 })
 
 export class ProductComponent implements OnInit {
-  product!: ProductType;
+  product: ProductType | null = null
 
   constructor(
     private route: ActivatedRoute,
@@ -47,7 +47,7 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/products']);
 }
 addToCart(): void {
-  this.router.navigate(['/order'], { state: { productTitle: this.product.title } });
+  this.router.navigate(['/order'], { state: { productTitle: this.product!.title } });
 }
 
 }

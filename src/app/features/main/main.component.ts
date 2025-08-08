@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription, timer } from 'rxjs';
+import { PopupComponent } from '../../shared/common/popup/popup.component';
 
 declare var $:any;
 
@@ -12,8 +14,10 @@ declare var $:any;
 export class MainComponent implements OnInit, OnDestroy {
   private popupTimerSub?: Subscription;
 
-  constructor(private router: Router) { }
- 
+  constructor(private router: Router, private modalService: NgbModal) { }
+
+
+
   
   ngOnInit(): void {
     $(".accordion-header").click(function (this: HTMLElement) {
@@ -23,26 +27,25 @@ export class MainComponent implements OnInit, OnDestroy {
       $(".accordion-arrow").not($(this).find(".accordion-arrow")).removeClass("open");
     });
 
-      this.popupTimerSub = timer(10000).subscribe(() => {
-      $('#promoModal').modal('show');
+    this.popupTimerSub = timer(10000).subscribe(() => {
+      this.openPopup();
     });
 }
+
+  openPopup() {
+    this.modalService.open(PopupComponent, { centered: true });
+  }
+
   ngOnDestroy(): void {
    
     if (this.popupTimerSub) {
       this.popupTimerSub.unsubscribe();
     }
 
-    // Hide modal if it's open
-    $('#promoModal').modal('hide');
-
-    $('.modal-backdrop').remove();
-    $('body').removeClass('modal-open'); 
-    $('body').css('padding-right', '');  
   }
 
-    goToCatalog(): void {
-    $('#promoModal').modal('hide');
-    this.router.navigate(['/products']);
-  }
+  //   goToCatalog(): void {
+  //   $('#promoModal').modal('hide');
+  //   this.router.navigate(['/products']);
+  // }
 }
