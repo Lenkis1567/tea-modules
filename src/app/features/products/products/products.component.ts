@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   this.loading = true;
-      this.http.get<ProductType[]>('http://testologia.ru/tea')
+      this.http.get<ProductType[]>('https://testologia.ru/tea')
       .pipe(
         tap(()=> {
           this.loading = false

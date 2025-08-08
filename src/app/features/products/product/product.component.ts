@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
       return;
     }
 
-    this.http.get<ProductType[]>('http://testologia.ru/tea').subscribe({
+    this.http.get<ProductType[]>('https://testologia.ru/tea').subscribe({
       next: (products) => {
         const found = products.find(p => p.id.toString() === id);
         if (found) {
